@@ -1,11 +1,3 @@
-
-
-
-
-
-
-
-
 def best_result(file_name, monomer, rec_lig, receptor, ligand):
 
 	# Function to generate the "best docking results", being the result with the best score and with the residue with the best contact frequency
@@ -280,8 +272,6 @@ def result_dict_generator(threshold, monomer, rec_lig, receptor, ligand):
 
 
 
-#
-
 def color_surfaces(monomer, receptor, ligand, rec_lig):
 
 	# Function to create the nested dictionary with every monomer as key with value a dictionary with its amino acids as keys and contact frequencies as values
@@ -319,10 +309,6 @@ def color_surfaces(monomer, receptor, ligand, rec_lig):
 
 
 
-
-
-
-
 def pipeline(rec_lig, is_monomer, receptor, ligand, monomers_list):
 
 	print('Current pair:' + rec_lig)
@@ -349,10 +335,6 @@ def pipeline(rec_lig, is_monomer, receptor, ligand, monomers_list):
 		print('Ligands are now reserved in docking results.')
 		color_surfaces(monomer, receptor, ligand, rec_lig)
 		#plot_frequencies(monomer)
-
-
-
-
 
 def start():
 
@@ -459,7 +441,7 @@ with open(new_json, 'w') as  file:
 		file.write(json.dumps(final_json))
 print('result.json is finished')
 
-def	best_normalization(monomer_json,receptor,ligand,final_json):
+def best_normalization(monomer_json,receptor,ligand,final_json):
 
 
 	# To remove the temporary files and directories created
