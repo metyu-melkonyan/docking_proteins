@@ -1,84 +1,63 @@
-# Protein Docking Analysis Script
+# Docking Proteins: Automated Protein-Ligand Docking Analysis
 
-## Overview
+This repository contains Python scripts that automate the analysis of protein-ligand docking results. The workflow focuses on identifying optimal docking solutions, isolating relevant components (such as monomers and ligands), calculating contact frequencies, and preparing the resulting data for further visualization and scientific interpretation.
 
-This script automates the analysis of protein-ligand docking results, focusing on:
-- Identifying the best docking poses based on energy scores and residue-ligand interaction frequencies.
-- Preparing results for downstream visualization and analysis.
-- Normalizing interaction data for comparative studies.
-
-It is designed for computational biology and drug discovery pipelines, offering a robust framework for studying protein-ligand interactions.
-
----
+**Homepage:** [Project Website](https://provartlabundergrads.csb.utoronto.ca/metyus-summative/)
 
 ## Features
 
-- **Best Docking Pose Selection**: Identifies the docking pose with the best energy and interaction scores.
-- **Residue-Ligand Interaction Analysis**: Calculates contact frequencies between receptor residues and ligand atoms using distance thresholds.
-- **Result Normalization**: Outputs normalized scores for better comparison of docking results.
-- **Data Preparation for Visualization**: Converts docking result files into standardized formats compatible with visualization tools like JSmol.
+- **Best Solution Extraction:** Automatically identifies and extracts the best docking poses from docking results.
+- **Component Isolation:** Separates key components such as protein monomers and ligand molecules for targeted analysis.
+- **Contact Frequency Calculation:** Computes and summarizes contact frequencies between protein and ligand atoms.
+- **Data Preparation:** Formats results for downstream visualization tools and interpretation.
+- **Automation:** Minimizes manual intervention in the post-docking workflow for rapid and reproducible analysis.
 
----
+## Getting Started
 
-## Requirements
+### Prerequisites
 
-- Python 3.8 or higher
-- Python libraries:
-  - `os`
-  - `shutil`
-  - `json`
-  - `math`
-  - `datetime`
+- Python 3.x
+- Common scientific libraries: `numpy`, `pandas`, `biopython` (installation commands below)
+- Docking output files in a supported format (e.g., PDBQT)
 
----
+### Installation
 
-## Installation
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/metyu-melkonyan/docking_proteins.git
+    cd docking_proteins
+    ```
+2. Install dependencies:
+    ```bash
+    pip install numpy pandas biopython
+    ```
 
-* **Clone the Repository**:
-   ```bash
-   git clone https://github.com/yourusername/protein-docking-analysis.git
-   cd protein-docking-analysis
+### Usage
 
-# Usage
-* Best Docking Pose Selection
-Identify the best docking result and prepare it for further analysis:
+1. Place your docking result files in the input directory as specified by the script.
+2. Run the main analysis script:
+    ```bash
+    python analyze_docking.py
+    ```
+3. Output files with extracted solutions, component separations, and summary tables will be generated in the output directory.
 
-```python
-from docking_analysis import best_result
+*For more detailed usage instructions and options, see comments in the main script or visit the [Project Website](https://provartlabundergrads.csb.utoronto.ca/metyus-summative/).*
 
-## Example usage
-best_result(
-    file_name="file_name.pdb",
-    monomer="monomer",
-    rec_lig="receptor_ligand",
-    receptor="receptor",
-    ligand="ligand")
-```
-* Residue-Ligand Interaction Analysis
-Calculate contact frequencies and generate a residue-ligand interaction dictionary:
+## Project Structure
 
-```python
-from docking_analysis import result_dict_generator
+- `analyze_docking.py` – Main automation script for analyzing docking results.
+- `utils/` – Helper modules and utility functions.
+- `input/` – Place your docking result files here.
+- `output/` – Processed results and summary files.
 
-## Example usage
-result_dict = result_dict_generator(
-    threshold=5.0, 
-    monomer="monomer", 
-    rec_lig="receptor_ligand", 
-    receptor="receptor", 
-    ligand="ligand")
-```
-* Visualization-Ready Data Preparation
-Normalize interaction scores and prepare files for visualization:
+## Citation
 
-```python 
-from docking_analysis import normalize_results
+If you use this code or workflows in your research, please cite the project or reference the [project website](https://provartlabundergrads.csb.utoronto.ca/metyus-summative/).
 
-## Example usage
-normalize_results(
-    monomer_json="monomer_results.json",
-    receptor="receptor",
-    ligand="ligand",
-    final_json="final_normalized_results.json")
-```
+## License
 
+This repository currently does not specify a license. Contact the author for permissions regarding usage or distribution.
+
+## Author
+
+[metyu-melkonyan](https://github.com/metyu-melkonyan)
